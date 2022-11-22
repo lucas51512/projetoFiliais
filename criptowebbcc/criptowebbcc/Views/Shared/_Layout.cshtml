@@ -22,18 +22,30 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="clientes" asp-action="Index">Clientes</a>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" 
+                                aria-expanded="false">
+                                Menu de Opções
+                            </a>
+                        
+                            <ul class="dropdown-menu">
+                                <li class="nav-item dropdown-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="clientes" asp-action="Index">Clientes</a>
+                                </li>
+                                <li class="nav-item dropdown-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="filiais" asp-action="Index">Filiais</a>
+                                </li>
+                                <li class="nav-item dropdown-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="produtos" asp-action="Index">Produtos</a>
+                                </li>
+                                <li class="nav-item dropdown-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="transacoes" asp-action="Index">Transacoes</a>
+                                </li>
+
+                            </ul>
+                        
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="filiais" asp-action="Index">Filiais</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="produtos" asp-action="Index">Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="transacoes" asp-action="Index">Transacoes</a>
-                        </li>
+
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Termos de Uso</a>
                         </li>
