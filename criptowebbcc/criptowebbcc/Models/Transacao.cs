@@ -30,5 +30,22 @@ namespace criptowebbcc.Models
         [Required(ErrorMessage = "Campo valor é obrigatório")]
         [Display(Name = "Valor")]
         public float valor { get; set; }
+
+        [Display(Name = "Produto: ")]
+        [ForeignKey("Produtos")]
+        public int produtoId { get; set; }
+        public virtual Produto Produto { get; set; }
+
+        [Display(Name = "Cliente: ")]
+        [ForeignKey("Clientes")]
+        public int clienteId { get; set; }
+        public virtual Cliente cliente { get; set; }
+
+        [Display(Name = "Total: ")]
+        [NotMapped]
+        [DisplayFormat(DataFormatString = "{0:N2}")]
+        public virtual float total {
+            get { return quantidade * valor; }
+        }
     }
 }

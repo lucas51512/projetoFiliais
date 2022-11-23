@@ -20,15 +20,28 @@
                 <span asp-validation-for="nomeFilial" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="clienteId" class="control-label"></label>
+                <select asp-for="clienteId" class="form-control" asp-items="ViewBag.clienteId"></select>
+                <span asp-validation-for="clienteId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="produtoId" class="control-label"></label>
+                <select asp-for="produtoId" class="form-control" asp-items="ViewBag.produtoId"></select>
+                <span asp-validation-for="produtoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="transacaoId" class="control-label"></label>
+                <select asp-for="transacaoId" class="form-control" asp-items="ViewBag.transacaoId"></select>
+                <span asp-validation-for="transacaoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="cidadeFilial" class="control-label"></label>
                 <input asp-for="cidadeFilial" class="form-control" />
                 <span asp-validation-for="cidadeFilial" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="estadoFilial" class="control-label"></label>
-                <select asp-for="estadoFilial" asp-items="ViewBag.bagEstado" class="form-control">
-                    <option selected="selected" value="">Selecione um estado</option>
-                </select>
+                <select asp-for="estadoFilial" class="form-control"></select>
                 <span asp-validation-for="estadoFilial" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -39,7 +52,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-primary">Back to List</a>
 </div>
 
 @section Scripts {

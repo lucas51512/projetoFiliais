@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using criptowebbcc.Models.Consulta;
 
 namespace criptowebbcc.Models
 {
@@ -10,5 +11,6 @@ namespace criptowebbcc.Models
         public DbSet<Produto> produtos { get; set; }
         public DbSet<Filial> filiais { get; set; }
         public DbSet<Transacao> transacoes { get; set; }
+        public DbSet<criptowebbcc.Models.Consulta.TransacaoQry> TransacaoQry { get; set; }
     }
 }

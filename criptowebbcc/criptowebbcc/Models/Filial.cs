@@ -18,6 +18,18 @@ namespace criptowebbcc.Models
         [Display(Name = "Nome")]
         public string nomeFilial { get; set; }
 
+        [ForeignKey("Clientes")]
+        public int clienteId { get; set; }  
+        public virtual Cliente Cliente { get; set; }
+
+        [ForeignKey("Produtos")]
+        public int produtoId { get; set; }
+        public virtual Produto Produto { get; set; }
+
+        [ForeignKey("Transacoes")]
+        public int transacaoId { get; set; }
+        public virtual Transacao Transacao { get; set; }
+
         [StringLength(35)]
         [Required(ErrorMessage = "Campo cidade é obrigatório")]
         [Display(Name = "Cidade")]

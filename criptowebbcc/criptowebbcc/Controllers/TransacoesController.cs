@@ -21,7 +21,8 @@ namespace criptowebbcc.Controllers
         // GET: Transacoes
         public async Task<IActionResult> Index()
         {
-              return View(await _context.transacoes.ToListAsync());
+            var contexto = _context.transacoes.Include(t => t.Produto).Include(t => t.cliente);
+            return View(await contexto.ToListAsync());
         }
 
         // GET: Transacoes/Details/5
@@ -33,6 +34,8 @@ namespace criptowebbcc.Controllers
             }
 
             var transacao = await _context.transacoes
+                .Include(t => t.Produto)
+                .Include(t => t.cliente)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (transacao == null)
             {
@@ -45,6 +48,8 @@ namespace criptowebbcc.Controllers
         // GET: Transacoes/Create
         public IActionResult Create()
         {
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "nomeProduto");
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "nome");
             return View();
         }
 
@@ -53,7 +58,7 @@ namespace criptowebbcc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,tipoProduto,quantidade,data,valor")] Transacao transacao)
+        public async Task<IActionResult> Create([Bind("id,tipoProduto,quantidade,data,valor,produtoId,clienteId")] Transacao transacao)
         {
             if (ModelState.IsValid)
             {
@@ -61,6 +66,8 @@ namespace criptowebbcc.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "nomeProduto", transacao.produtoId);
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "nome", transacao.clienteId);
             return View(transacao);
         }
 
@@ -77,6 +84,8 @@ namespace criptowebbcc.Controllers
             {
                 return NotFound();
             }
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "nomeProduto", transacao.produtoId);
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "nome", transacao.clienteId);
             return View(transacao);
         }
 
@@ -85,7 +94,7 @@ namespace criptowebbcc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,tipoProduto,quantidade,data,valor")] Transacao transacao)
+        public async Task<IActionResult> Edit(int id, [Bind("id,tipoProduto,quantidade,data,valor,produtoId,clienteId")] Transacao transacao)
         {
             if (id != transacao.id)
             {
@@ -112,6 +121,8 @@ namespace criptowebbcc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "nomeProduto", transacao.produtoId);
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "nome", transacao.clienteId);
             return View(transacao);
         }
 
@@ -124,6 +135,8 @@ namespace criptowebbcc.Controllers
             }
 
             var transacao = await _context.transacoes
+                .Include(t => t.Produto)
+                .Include(t => t.cliente)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (transacao == null)
             {

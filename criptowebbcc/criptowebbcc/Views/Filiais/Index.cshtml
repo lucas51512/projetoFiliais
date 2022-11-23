@@ -8,13 +8,22 @@
 <h1>Index</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-outline-primary">Adicionar Nova Filial</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.nomeFilial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Produto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Transacao)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.cidadeFilial)
@@ -30,6 +39,15 @@
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.nomeFilial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Produto.descricaoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transacao.tipoProduto)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.cidadeFilial)

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using criptowebbcc.Models;
 
@@ -11,9 +12,10 @@ using criptowebbcc.Models;
 namespace criptowebbcc.Migrations
 {
     [DbContext(typeof(Contexto))]
-    partial class ContextoModelSnapshot : ModelSnapshot
+    [Migration("20221123151015_RelacoesTransacoes")]
+    partial class RelacoesTransacoes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -126,13 +128,13 @@ namespace criptowebbcc.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                    b.Property<int>("clienteId")
+                    b.Property<int>("clienteid")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("data")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("produtoId")
+                    b.Property<int>("produtoid")
                         .HasColumnType("int");
 
                     b.Property<int>("quantidade")
@@ -146,10 +148,6 @@ namespace criptowebbcc.Migrations
                         .HasColumnType("real");
 
                     b.HasKey("id");
-
-                    b.HasIndex("clienteId");
-
-                    b.HasIndex("produtoId");
 
                     b.ToTable("Transacoes");
                 });
@@ -179,25 +177,6 @@ namespace criptowebbcc.Migrations
                     b.Navigation("Produto");
 
                     b.Navigation("Transacao");
-                });
-
-            modelBuilder.Entity("criptowebbcc.Models.Transacao", b =>
-                {
-                    b.HasOne("criptowebbcc.Models.Cliente", "cliente")
-                        .WithMany()
-                        .HasForeignKey("clienteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("criptowebbcc.Models.Produto", "Produto")
-                        .WithMany()
-                        .HasForeignKey("produtoId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Produto");
-
-                    b.Navigation("cliente");
                 });
 
             modelBuilder.Entity("criptowebbcc.Models.Cliente", b =>

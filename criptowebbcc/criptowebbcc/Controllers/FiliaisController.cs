@@ -21,7 +21,8 @@ namespace criptowebbcc.Controllers
         // GET: Filiais
         public async Task<IActionResult> Index()
         {
-              return View(await _context.filiais.ToListAsync());
+            var contexto = _context.filiais.Include(f => f.Cliente).Include(f => f.Produto).Include(f => f.Transacao);
+            return View(await contexto.ToListAsync());
         }
 
         // GET: Filiais/Details/5
@@ -33,6 +34,9 @@ namespace criptowebbcc.Controllers
             }
 
             var filial = await _context.filiais
+                .Include(f => f.Cliente)
+                .Include(f => f.Produto)
+                .Include(f => f.Transacao)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (filial == null)
             {
@@ -45,14 +49,17 @@ namespace criptowebbcc.Controllers
         // GET: Filiais/Create
         public IActionResult Create()
         {
-            var estado = Enum.GetValues(typeof(Estado)).Cast<Estado>()
-                .Select(e => new SelectListItem
-                {
-                    Value = e.ToString(),
-                    Text = e.ToString()
-                });
-            ViewBag.bagEstado = estado;
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "nome");
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "nomeProduto");
+            ViewData["transacaoId"] = new SelectList(_context.transacoes, "id", "id");
 
+            var estado = Enum.GetValues(typeof(Estado)).Cast<Estado>()
+            .Select(e => new SelectListItem
+            {
+                Value = e.ToString(),
+                Text = e.ToString()
+            });
+            ViewBag.bagEstado = estado;
             return View();
         }
 
@@ -61,7 +68,7 @@ namespace criptowebbcc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nomeFilial,cidadeFilial,estadoFilial")] Filial filial)
+        public async Task<IActionResult> Create([Bind("id,nomeFilial,clienteId,produtoId,transacaoId,cidadeFilial,estadoFilial")] Filial filial)
         {
             if (ModelState.IsValid)
             {
@@ -69,6 +76,10 @@ namespace criptowebbcc.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "nome", filial.clienteId);
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "nomeProduto", filial.produtoId);
+            ViewData["transacaoId"] = new SelectList(_context.transacoes, "id", "id", filial.transacaoId);
+
             return View(filial);
         }
 
@@ -85,6 +96,17 @@ namespace criptowebbcc.Controllers
             {
                 return NotFound();
             }
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "nome", filial.clienteId);
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "nomeProduto", filial.produtoId);
+            ViewData["transacaoId"] = new SelectList(_context.transacoes, "id", "id", filial.transacaoId);
+
+            var estado = Enum.GetValues(typeof(Estado)).Cast<Estado>()
+              .Select(e => new SelectListItem
+              {
+                  Value = e.ToString(),
+                  Text = e.ToString()
+              });
+            ViewBag.bagEstado = estado;
             return View(filial);
         }
 
@@ -93,7 +115,7 @@ namespace criptowebbcc.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,nomeFilial,cidadeFilial,estadoFilial")] Filial filial)
+        public async Task<IActionResult> Edit(int id, [Bind("id,nomeFilial,clienteId,produtoId,transacaoId,cidadeFilial,estadoFilial")] Filial filial)
         {
             if (id != filial.id)
             {
@@ -120,6 +142,18 @@ namespace criptowebbcc.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["clienteId"] = new SelectList(_context.clientes, "id", "cidade", filial.clienteId);
+            ViewData["produtoId"] = new SelectList(_context.produtos, "id", "descricaoProduto", filial.produtoId);
+            ViewData["transacaoId"] = new SelectList(_context.transacoes, "id", "tipoProduto", filial.transacaoId);
+
+            var estado = Enum.GetValues(typeof(Estado)).Cast<Estado>()
+            .Select(e => new SelectListItem
+            {
+                Value = e.ToString(),
+                Text = e.ToString()
+            });
+            ViewBag.bagEstado = estado;
+
             return View(filial);
         }
 
@@ -132,6 +166,9 @@ namespace criptowebbcc.Controllers
             }
 
             var filial = await _context.filiais
+                .Include(f => f.Cliente)
+                .Include(f => f.Produto)
+                .Include(f => f.Transacao)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (filial == null)
             {

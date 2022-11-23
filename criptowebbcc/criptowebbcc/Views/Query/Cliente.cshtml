@@ -1,15 +1,14 @@
 ﻿@model IEnumerable<criptowebbcc.Models.Cliente>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cliente";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Cliente</h1>
 
 <p>
-    <a asp-action="Create" class="btn btn-outline-primary">Adicionar Cliente</a>
-    <a asp-controller="query" asp-action="pesquisa" class="btn btn-outline-primary">Pesquisa</a>
+    <a asp-action="Pesquisa">Pesquisa</a>
 </p>
 <table class="table">
     <thead>

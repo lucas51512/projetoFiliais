@@ -35,6 +35,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50ZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/dados/Cliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGFkb3NcQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/dados/Filial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcZGFkb3NcRmlsaWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Filiais/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmlsaWFpc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -81,6 +89,18 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Produtos/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZHV0b3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Query/Cliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcQ2xpZW50ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Query/Pesquisa.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUGVzcXVpc2EuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Query/Transacoes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcVHJhbnNhY29lcy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Shared/Error.cshtml]

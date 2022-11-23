@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace criptowebbcc.Models
 {
     public enum Estado {RS, SC, PR, SP, RJ, ES, MG, MS, MT,
-        TO, GO, DF, RO, BA, AC, AM, PA, PE, PB, CE, RN}
+        TO, GO, DF, RO, BA, AC, AM, PA, PE, PB, CE}
     [Table("Clientes")]
     public class Cliente
     {

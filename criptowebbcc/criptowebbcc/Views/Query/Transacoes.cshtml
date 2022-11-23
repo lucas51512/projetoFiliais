@@ -1,11 +1,11 @@
-﻿@model IEnumerable<criptowebbcc.Models.Transacao>
+﻿@model IEnumerable<criptowebbcc.Models.Consulta.TransacaoQry>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Transacoes";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Transações</h1>
+<h1>Transacoes</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-outline-primary">Adicionar Transação</a>
@@ -14,22 +14,28 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.tipoProduto)
+                Id do Produto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.quantidade)
+                Tipo Produto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.data)
+                Quantidade
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.valor)
+                Data
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Produto)
+                Valor
             </th>
             <th>
-                Cliente
+                Id do Cliente
+            </th>
+            <th>
+                Nome do Cliente
+            </th>
+            <th>
+                Total da Compra
             </th>
             <th></th>
         </tr>
@@ -37,6 +43,9 @@
     <tbody>
 @foreach (var item in Model) {
         <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.produto)
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.tipoProduto)
             </td>
@@ -50,10 +59,13 @@
                 @Html.DisplayFor(modelItem => item.valor)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Produto.nomeProduto)
+                @Html.DisplayFor(modelItem => item.cliente)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.cliente.nome)
+                @Html.DisplayFor(modelItem => item.clienteNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.total)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
