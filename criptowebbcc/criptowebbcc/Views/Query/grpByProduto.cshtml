@@ -5,25 +5,25 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>grpByProduto</h1>
+<h1>Agrupar por Produto</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-controller="transacoes" asp-action="index" class="btn btn-outline-primary">Voltar</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.produto)
+                Id do Produto
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.data)
+                Data de Compra
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.clienteNome)
+                Nome do Cliente
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.valor)
+                Valor da Transacao
             </th>
             <th></th>
         </tr>

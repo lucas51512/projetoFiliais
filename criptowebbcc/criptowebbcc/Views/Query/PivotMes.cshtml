@@ -1,0 +1,108 @@
+﻿@model IEnumerable<criptowebbcc.Models.Consulta.PivotMes>
+
+@{
+    ViewData["Title"] = "PivotMes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>PivotMes</h1>
+
+<p>
+    <a asp-controller="transacoes" asp-action="index" class="btn btn-outline-primary">Voltar</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tipoProduto)
+            </th>
+            <th>
+                Janeiro
+            </th>
+            <th>
+                Fevereiro
+            </th>
+            <th>
+                Março
+            </th>
+            <th>
+                Abril
+            </th>
+            <th>
+                Maio
+            </th>
+            <th>
+                Junho
+            </th>
+            <th>
+                Julho
+            </th>
+            <th>
+                Agosto
+            </th>
+            <th>
+                Setembro
+            </th>
+            <th>
+                Outubro
+            </th>
+            <th>
+                Novembro
+            </th>
+            <th>
+                Dezembro
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes4)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes5)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes6)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes7)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes8)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes9)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes10)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes11)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.mes12)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
