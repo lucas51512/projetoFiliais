@@ -95,6 +95,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcQ2xpZW50ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Query/grpByMes.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcZ3JwQnlNZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Query/grpByProduto.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcZ3JwQnlQcm9kdXRvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/projetos/csharp/criptowebbcc/criptowebbcc/Views/Query/Pesquisa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXVlcnlcUGVzcXVpc2EuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

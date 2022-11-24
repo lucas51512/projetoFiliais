@@ -12,5 +12,7 @@ namespace criptowebbcc.Models
         public DbSet<Filial> filiais { get; set; }
         public DbSet<Transacao> transacoes { get; set; }
         public DbSet<criptowebbcc.Models.Consulta.TransacaoQry> TransacaoQry { get; set; }
+        public DbSet<criptowebbcc.Models.Consulta.TransacaoGrpProduto> TransacaoGrpProduto { get; set; }
+        public DbSet<criptowebbcc.Models.Consulta.TransacaoGrpMes> TransacaoGrpMes { get; set; }
     }
 }
